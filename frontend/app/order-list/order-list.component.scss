@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  border: 1px solid black;
+
+  th, td {
+    border: 1px solid black;
+
+    &.numeric {
+      text-align: center;
+    }
+
+    &.alarm {
+      color: red;
+    }
+
+  }
+}
+
+button {
+  margin: 20px;
+}

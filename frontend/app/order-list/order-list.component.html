@@ -1,7 +1,95 @@
-<h1>Orders</h1>
-
-<table>
+<h1>
+  Orders
+</h1>
+<table *ngIf="!orders">
   <td>
     No orders loaded.
   </td>
 </table>
+<table *ngIf="orders">
+  <tr>
+    <th>
+      Id
+    </th>
+    <th>
+      Customer
+    </th>
+    <th>
+      Delay
+    </th>
+    <th>
+      Delivered
+    </th>
+    <th>
+      Requested 
+    </th>
+    <th>
+      Driver
+    </th>
+    <th>
+      Last Modified
+    </th>
+    <th>
+      Vendor
+    </th>
+    <th>
+      Packaging
+    </th>
+    <th>
+      Payment
+    </th>
+    <th>
+      Total
+    </th>
+    <th>
+      Style
+    </th>
+  </tr>
+  <tr *ngFor="let order of orders">
+    <td class="numeric">
+      {{ order.id }}
+    </td>
+    <td>
+      <a href="{{googleAPI}}?api=1&query={{order.deliveryLocation.lat}},{{order.deliveryLocation.long}}">{{ order.customer }}</a><br/>
+      {{ order.headcount }} pp., {{ order.commissionRate | percent }}
+    </td>
+    <td class="numeric alarm">
+      {{ order.delayMinutes === 0 ? '' : order.delayMinutes + '\'' }}<br/>
+      {{ order.lateReason ? lateReasonLabel[order.lateReason] : '' }}
+    </td>
+    <td>
+      {{ order.deliveredAt | date: 'd/M/yy, h:mm a' }}
+    </td>
+    <td>
+      {{ order.requestedDeliveryDate | date: 'd/M/yy, h:mm a' }}
+    </td>
+    <td>
+      <a href="{{googleAPI}}?api=1&query={{order.currentLocation.lat}},{{order.currentLocation.long}}">
+        {{ order.driverName }}
+      </a>
+    </td>
+    <td>
+      {{ order.lastModified | date: 'd/M/yy, h:mm a' }}
+    </td>
+    <td>
+      <a href="{{googleAPI}}?api=1&query={{order.vendorLocation.lat}},{{order.vendorLocation.long}}">
+        {{ order.vendor }}
+      </a>
+    </td>
+    <td>
+      {{ packagingLabel[order.packaging] }}
+    </td>
+    <td>
+      {{ paymentTypeLabel[order.paymentType] }}
+    </td>
+    <td>
+      {{ order.price.total | currency: '£' }}
+    </td>
+    <td>
+      {{ servingStyleLabel[order.servingStyle] }}
+    </td>
+  </tr>
+</table>
+<button (click)="onLoadMoreClick()">
+  Load more
+</button>

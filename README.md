@@ -75,3 +75,32 @@ yarn test
 This runs tests for the frontend.
 
 You should not write tests for the backend or E2E tests.
+
+# TODO
+
+## Dependencies
+
+### WARN deprecated dependencies
+
+The following dependecies are deprecated, and need to be updated:
+- @angular/http@5.2.11
+- extract-text-webpack-plugin@3.0.2
+- browserslist@1.7.7
+- hawk@3.1.3
+- flatten@1.0.2
+- boom@2.10.1
+- cryptiles@2.0.5
+- sntp@1.0.9
+- hoek@2.16.3
+
+### Missing package-lock.json
+
+The file package-lock.json should be committed. Not doing it may have consequences not only on the technical side but also on the legal/licence side.
+
+### Missing peer dependencies
+
+ajv-keywords@3.4.1 requires a peer of ajv@^6.9.1 but none is installed. It must be installed.
+
+### Vulnerabilities
+
+31 vulnerabilities (15 low, 7 moderate, 9 high) are found, and need to be fixed.
