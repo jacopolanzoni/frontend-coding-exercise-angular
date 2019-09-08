@@ -53,7 +53,9 @@ and indipendent from the UI (i.e., `NO_ERROR_SCHEMA`). We provided some.
 asserting that the component methods and template behave as expected. We provided some.
 - e2e/functional tests, in `xxx.e2e.spec.ts` files, one per acceptance criteria of each user story
 or per bug, representing a flow as it would be for a final user.
+
 Moreover, the following would need to be added:
+
 - code coverage reports, e.g. `istanbul`.
 - integration to a CI pipeline,
 - agreed threshold of code coverage under which a build would fail.
