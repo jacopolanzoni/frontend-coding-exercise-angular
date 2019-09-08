@@ -44,7 +44,7 @@ exposed by a `OrderSummary`),
 sections (status section, payment section, map section). In particular, a map could be displayed 
 with the positions of customer, vendor and driver. 
 
-### Testing
+### Testing
 A complete testing setting would include:
 - unit tests, in `xxx.unit.spec.ts` files, one per component/service/directive/pipe, containing 
 a suite (i.e., `describe`) per method, and possibly many tests in it. These tests should be quick
